@@ -4,7 +4,8 @@
   "description": "data storing lambda function",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "zip -r data_store_service.zip * -x *.zip *.log *.sample .gitignore",
+    "deploy": "aws lambda update-function-code --function-name data-store-service --zip-file fileb://data_store_service.zip --profile assessment"
   },
   "author": "Harsha Lakmal",
   "license": "ISC",

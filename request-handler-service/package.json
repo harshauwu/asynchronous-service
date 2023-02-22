@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "zip -r request_handler_service.zip * -x *.zip *.log *.sample .gitignore",
+    "deploy": "aws lambda update-function-code --function-name request-handler-service --zip-file fileb://request_handler_service.zip --profile assessment"
   },
   "author": "Harsha Lakmal",
   "license": "ISC",

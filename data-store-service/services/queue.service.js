@@ -52,7 +52,7 @@ class SQSService {
             MessageBody:JSON.stringify(msgBody),
             MessageDeduplicationId: Date.now().toString(),
             MessageGroupId: 'SendEmail',
-            QueueUrl: 'https://sqs.us-west-2.amazonaws.com/072203819536/MySample.fifo'
+            QueueUrl: CONFIG.sqs_url_2,
         };
         const command = new SendMessageCommand(params);
         return new Promise((resolve, reject) => {

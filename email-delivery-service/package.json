@@ -4,7 +4,8 @@
   "description": "This is email delivery service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "zip -r email_delivery_service.zip * -x *.zip *.log *.sample .gitignore",
+    "deploy": "aws lambda update-function-code --function-name email-delivery-service --zip-file fileb://email_delivery_service.zip --profile assessment"
   },
   "author": "Harsha Lakmal",
   "license": "ISC",
