@@ -1,0 +1,7 @@
+ACCESS_KEY_SECRET=xxx
+REGION=xxx
+SQS_URL=xxx
+
+DB_HOST=xxx
+DB_USER=xxx
+DB_PASSWORD=xxx
