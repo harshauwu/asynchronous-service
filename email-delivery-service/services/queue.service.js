@@ -28,6 +28,7 @@ class SQSService {
         try {
             const data = await this.client.send(command);
             console.log("Success", JSON.stringify(data));
+            return data;
         } catch (err) {
             console.log("Error", err);
         }

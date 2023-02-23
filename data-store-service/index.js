@@ -5,8 +5,9 @@ exports.handler = async () => {
     try {
         const queue = new SQSService();
         const data = await queue.receiveMessage();
-        await saveRequestDetails(data);
-        await queue.sendMessage(data);
+        const result = await saveRequestDetails(data);
+        const payload = {...data, ...{request_id: result.id}};
+        await queue.sendMessage(payload);
     } catch (error) {
         console.log('error' + error.stack);
         return;

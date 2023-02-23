@@ -15,7 +15,7 @@ class SQSService {
         this.client = new SQSClient(config);
     }
 
-    receiveMessage() {
+    async receiveMessage() {
         // Set the parameters
         const params = {
             AttributeNames: ['SentTimestamp'],
@@ -25,21 +25,13 @@ class SQSService {
             WaitTimeSeconds: 2
         };
         const command = new ReceiveMessageCommand(params);
-        return new Promise((resolve, reject) => {
-            
-            // Send the order data to the SQS queue
-            this.client.send(command)
-                .then(data => {
-                    console.log('SQS | SUCCESS:');
-                    console.log(JSON.stringify(data));
-                    return resolve(data);
-                })
-                .catch(err => {
-                    console.log('SQS failed!');
-                    console.log(err);
-                    return reject(err);
-                });
-        });
+        try {
+            const data = await this.client.send(command);
+            console.log('Success', JSON.stringify(data));
+            return data.Body; 
+        } catch (err) {
+            console.log('Error', err);
+        }
     }
 }
 

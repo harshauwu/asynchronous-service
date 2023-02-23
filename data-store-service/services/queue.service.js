@@ -27,9 +27,9 @@ class SQSService {
         const command = new ReceiveMessageCommand(params);
         try {
             const data = await this.client.send(command);
-            console.log('Success', JSON.stringify(data));
-            if (data.type == 'REQUEST') {
-                return data; 
+            console.log('Success', JSON.stringify(data.Body));
+            if (data.data.Body.type == 'REQUEST') {
+                return data.Body; 
             } else {
                 throw new Error('Invalid type ');
             }

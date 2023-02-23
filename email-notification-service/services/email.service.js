@@ -15,15 +15,16 @@ class EmailService {
         const sesClient = new SESClient(config);
         
         const sendEmailCommand = this.createSendEmailCommand(
-            'to@example.com',
+            'asyntest@yopmail.com',
             'harshauwu@gmail.com'
         );
           
         try {
             return await sesClient.send(sendEmailCommand);
-        } catch (e) {
+        } catch (error) {
+            console.log(error);
             console.error('Failed to send email.');
-            return e;
+            return error;
         }
     }
 
