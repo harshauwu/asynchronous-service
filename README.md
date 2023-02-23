@@ -12,4 +12,4 @@
 
 ##### Below is the architectural diagram for synchronous services.
 
-![My Image](/documents/AsynchronousServices.png)
+![My Image](/documents/asynchronous_services.png)
