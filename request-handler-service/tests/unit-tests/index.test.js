@@ -4,7 +4,6 @@ const AWSMock = require('aws-sdk-mock');
 describe('Lambda Function', () => {
     test('validate the Lambda function with input and output parameters', async () => {
         AWSMock.setSDKInstance(AWS);
-
         const myName = 'Harsha Lakmal';
         const Payload = {name: myName};
         const outputObj = {
