@@ -2,7 +2,7 @@ const CONFIG = require('../config/config');
 const { SESClient, SendEmailCommand } =  require('@aws-sdk/client-ses') ;
 
 class EmailService {
-    async sendEmail(emailTemplate, subject, toEmail, dataSet) {
+    async sendEmail() {
 
         // configure AWS SDK
         const config = {

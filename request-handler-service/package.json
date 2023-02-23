@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest unit-tests/*",
     "predeploy": "zip -r request_handler_service.zip * -x *.zip *.log *.sample .gitignore",
     "deploy": "aws lambda update-function-code --function-name request-handler-service --zip-file fileb://request_handler_service.zip --profile assessment"
   },
   "author": "Harsha Lakmal",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.276.0"
+    "@aws-sdk/client-sqs": "^3.276.0",
+    "aws-sdk": "^2.1321.0",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.34.0"
+    "aws-sdk-mock": "^5.8.0",
+    "eslint": "^8.34.0",
+    "jest": "^29.4.3"
   }
 }
