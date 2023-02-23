@@ -9,3 +9,7 @@
 - Lambda
 
 ### Architecture
+
+##### Below is the architectural diagram for synchronous services.
+
+![My Image](/documents/AsynchronousServices.png)
